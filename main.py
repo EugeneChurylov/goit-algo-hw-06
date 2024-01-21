@@ -33,21 +33,21 @@ nx.draw(metro_graph, pos, with_labels=True, font_weight='bold', node_size=700, n
 plt.show()
 
 # Dijkstra
-# shortest_paths = {}
-# for station in metro_graph.nodes:
-#     shortest_paths[station] = dijkstra(metro_graph, station)
+shortest_paths = {}
+for station in metro_graph.nodes:
+    shortest_paths[station] = dijkstra(metro_graph, station)
 
-# # Виведення результатів
-# for source in shortest_paths:
-#     print(f"Найкоротші шляхи між станціями {source}:")
-#     for target, distance in shortest_paths[source].items():
-#         print(f"  {target}: {distance}")
+# Виведення результатів
+for source in shortest_paths:
+    print(f"Найкоротші шляхи між станціями {source}:")
+    for target, distance in shortest_paths[source].items():
+        print(f"  {target}: {distance}")
 
-# # Відображення графа (з вагами)
-# pos = nx.get_node_attributes(metro_graph, 'pos')
-# plt.figure(figsize=(10, 8))
-# nx.draw(metro_graph, pos, with_labels=True, font_weight='bold',
-#         node_size=700, node_color='skyblue', font_size=8)
-# edge_labels = nx.get_edge_attributes(metro_graph, 'weight')
-# nx.draw_networkx_edge_labels(metro_graph, pos, edge_labels=edge_labels)
-# plt.show()
+# Відображення графа (з вагами)
+pos = nx.get_node_attributes(metro_graph, 'pos')
+plt.figure(figsize=(10, 8))
+nx.draw(metro_graph, pos, with_labels=True, font_weight='bold',
+        node_size=700, node_color='skyblue', font_size=8)
+edge_labels = nx.get_edge_attributes(metro_graph, 'weight')
+nx.draw_networkx_edge_labels(metro_graph, pos, edge_labels=edge_labels)
+plt.show()
